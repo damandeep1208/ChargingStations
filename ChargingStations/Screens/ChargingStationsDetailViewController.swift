@@ -68,7 +68,7 @@ class ChargingStationsDetailViewController: UIViewController {
         guard let station = viewModel?.station else { return }
         guard let address = station.address, let lat = address.latitude, let lng = address.longitude else { return }
         
-        if let shareObject = MapHelper.activityItems(latitude: lat, longitude: lng) {
+        if let shareObject = MapHelper.activityItems(latitude: lat, longitude: lng, name: address.title ?? "destination") {
                //open UIActivityViewController
             let activityController = UIActivityViewController(activityItems: shareObject, applicationActivities: nil)
             present(activityController, animated:true, completion: nil)

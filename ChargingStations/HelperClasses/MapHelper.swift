@@ -38,10 +38,10 @@ class MapHelper {
         }
     }
     
-    static func activityItems(latitude: Double, longitude: Double) -> [AnyObject]? {
+    static func activityItems(latitude: Double, longitude: Double, name: String) -> [AnyObject]? {
         var items = [AnyObject]()
         
-        let URLString = "https://maps.apple.com?ll=\(latitude),\(longitude)"
+        let URLString = "https://maps.apple.com?ll=\(latitude),\(longitude)&q=\(name.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "")"
         
         if let url = NSURL(string: URLString) {
             items.append(url)
